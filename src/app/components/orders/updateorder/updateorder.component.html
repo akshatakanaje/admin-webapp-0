@@ -1,0 +1,69 @@
+<div class="modal-header">
+  <h4 class="modal-title">Order {{ updation ? 'Updation' : 'Creation' }}</h4>
+  <button type="button" class="btn-close" aria-label="Close" id="closeAddNewStaffModal" #closeAddNewStaffModal
+  (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12 col-sm-5">
+        <div class="form-group m-0 mb-2">
+          <label for="name" class="text-sm">Update Order</label>
+        </div>
+
+         
+        
+           <div class="col mb -3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Full Name">
+            </div>
+          
+            <div class="col mb -3">
+                   <label class="form-label">Email</label>
+                   <input type="text" class="form-control" placeholder="name@example.com">
+            </div>
+
+            <div class="col mb -3">
+              <label class="form-label">Contact</label>
+              <input type="text" class="form-control" placeholder="eg: 9854326754">
+            </div>
+          
+            <div class="col mb -3">
+              <label class="form-label">Order Id</label>
+              <input type="text" class="form-control" placeholder="eg: 3456231876">
+            </div>
+          
+            <div class="col mb -3">
+              <label class="form-label">Order Placed</label>
+              <input type="text" class="form-control" placeholder="">
+            </div>
+            
+            <div class="col mb -3">
+              <label class="form-label">Shipment Address</label>
+              <input type="text" class="form-control" placeholder="">
+            </div>
+          
+            <div class="col mb -3">
+            <label class="form-label">Total Amount</label>
+            <input type="text" class="form-control" placeholder="">
+            </div>
+          <button type="submit" class="btn btn-dark mt-3">Submit</button>
+        </div>
+    </div> 
+ </div> 
+ 
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default btn-sm"  (click)="close()">
+      Cancel
+    </button>
+    <button type="submit" class="btn btn-dark btn-sm" [disabled]="loader">
+      Save
+      <span *ngIf="loader">&nbsp;</span>
+      <div *ngIf="loader" class="spinner-border spinner-border-sm text-white" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </button>
+</div>
+

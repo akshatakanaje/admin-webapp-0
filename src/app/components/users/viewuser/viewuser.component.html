@@ -1,0 +1,27 @@
+<div class="modal-header border-0 d-flex justify-content-between align-items-center">
+    <h4>User Details</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()">
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex flex-column mb-1">
+        <span class="text-sm text-muted">Name</span>
+        <p>{{ userInfo?.fullName }}</p>
+      </div>
+    <div class="d-flex flex-column mb-1">
+      <span class="text-sm text-muted">Username</span>
+      <p>{{ userInfo?.username }}</p>
+    </div>
+    <div class="d-flex flex-column mb-1">
+      <span class="text-sm text-muted">Email</span>
+      <p>&#8377;{{ userInfo?.email }}</p>
+    </div>
+    <div class="d-flex flex-column mb-1">
+      <span class="text-sm text-muted">City</span>
+      <p class="text-wrap">{{ userInfo?.city }}</p>
+    </div>
+    <div class="d-flex flex-column mb-1">
+      <span class="text-sm text-muted">Contact</span>
+      <p class="text-wrap">{{ userInfo?.contact }}</p>
+    </div>
+  </div>

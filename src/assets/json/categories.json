@@ -1,0 +1,49 @@
+[
+    {
+      "categoryId": 1,
+      "categoryName": "Electronics",
+      "categoryDescription": "The field of electronics is a branch of physics and electrical engineering that deals with the emission.",
+      "categoryImageUrl": "",
+      "active": true,
+      "addedOn": "10 August 2020",
+      "images": [
+        "https://m.media-amazon.com/images/I/31FHYrTeTtL._AC_SR480,480_.jpg"
+      ]     
+    },
+    
+    {
+        "categoryId": 2,
+        "categoryName": "Gifts & Crafts",
+        "categoryDescription": "A gift card, or gift certificate, is a type of fringe benefit. Fringe benefits are benefits you can give employees in addition to their regular wages.",
+        "categoryImageUrl": "",
+        "active": false,
+        "addedOn": "11 August 2020",
+        "images": [
+           "https://m.media-amazon.com/images/I/41LK-Edgw0L._AC_SR480,480_.jpg"
+        ]
+      },
+     
+      {
+        "categoryId": 3,
+        "categoryName": "Furniture",
+        "categoryDescription": "Furniture e-commerce sales are provided by segment (upholstered furniture, outdoor furniture, office furniture, kitchen furniture, other furniture), by region and by distributor",
+        "categoryImageUrl": "",
+        "active": false,
+        "addedOn": "11 August 2020",
+        "images": [
+          "https://m.media-amazon.com/images/I/31cCT3NHQ0L._AC_SR480,480_.jpg"
+        ]
+      },
+      
+      {
+        "categoryId":4,
+        "categoryName":"Kitchen Items",
+        "categoryDescription":"Several kitchen items are on sale starting tomorrow at 6am and ending at 9pm",
+        "categoryImageUrl":"",
+        "active":true,
+        "addedOn":"23 November 2020",
+        "images": [
+             "https://m.media-amazon.com/images/I/41HFsSTnajL._AC_SR480,480_.jpg"
+        ]
+      }
+]
