@@ -27,7 +27,4 @@ export class AuthService {
         return localStorage.getItem('user');
     }
 
-    logOut() {
-        localStorage.clear();
-    }  
 }
