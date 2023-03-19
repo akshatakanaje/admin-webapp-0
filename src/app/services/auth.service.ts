@@ -13,6 +13,10 @@ export class AuthService {
         return this.httpClient.post<any[]>(`${environment.baseUrl}/admins/login`, adminReq);
     }
 
+    adminRegister(adminReq:any) {
+        return this.httpClient.post<any[]>(`${environment.baseUrl}/admins`, adminReq);
+    }
+
     userLogin(userReq:any){
         return this.httpClient.post<any[]>(`${environment.baseUrl}/users/login`, userReq);
     }
@@ -27,4 +31,8 @@ export class AuthService {
         return localStorage.getItem('user');
     }
 
+    logOut() {
+        localStorage.clear();
+    }
+    
 }
