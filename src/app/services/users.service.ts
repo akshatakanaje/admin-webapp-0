@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,9 @@ export class UsersService {      //json is used to transfer the data to the comp
 
   constructor(private httpClient: HttpClient) { }  //httpClient can read a static data as well as data coming from server
 
-  getAllUsers (){
-    return this.httpClient.get<any[]>('../../assets/json/users.json'); 
-  }
+  getAll() {
+    return this.httpClient.get<any[]>(`${environment.baseUrl}/users?page=0&size=10`); //while merging the backend code with front end
+  }                                    //1st we need to add baseUrl(need to change this one)
 
   getOne(id:number) {
     return this.httpClient.get<any[]>('../../assets/json/users.json');
