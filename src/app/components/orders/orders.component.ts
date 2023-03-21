@@ -33,7 +33,7 @@ export class OrdersComponent implements OnInit {
   }
 
   openModal(modelRef:any, orderObj = null) {
-    this.modalService.open(modelRef, { size: "xl" });
+    this.modalService.open(modelRef, { size: "l" });
     this.orderInfo = orderObj;
   }
    

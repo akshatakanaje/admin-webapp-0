@@ -24,6 +24,7 @@
                             <th scope="col">Email</th>
                             <th scope="col">City</th>
                             <th scope="col">Contact</th>
+                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -35,7 +36,9 @@
                             <td>{{user["city"]}}, {{user["state"]}}</td>
                             <td>{{user["contact"]}}</td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-dark" (click)="openViewModal(userViewModal, user)">View Users</button>
+                                <button type="button" class="btn btn-sm btn-dark me-1" (click)="openModal(userModal, user)" >Update</button>
+                                <button type="button" class="btn btn-sm btn-dark me-1" (click)="openViewModal(userViewModal, user)">View Users</button>
+                                <button type="button" class="btn btn-sm btn-danger me-1" (click)="deleteUser(user.userId)">Delete</button>
                             </td>
                           </tr>                          
                         </tbody>

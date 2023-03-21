@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -10,10 +11,11 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class AdduserComponent implements OnInit {
   
-  updation: boolean = false;
+ //updation: boolean = false;
   userForm: FormGroup = new FormGroup({});
   userBool: boolean = true;
   loader : boolean = false;
+  errResponse: any;
 
   @Input()
   public userInfo:any;
@@ -21,7 +23,7 @@ export class AdduserComponent implements OnInit {
   @Output()
   public closeModel: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private modalService: NgbModal, private fb:FormBuilder, private usersService:UsersService) { }
+  constructor(private modalService: NgbModal, private fb:FormBuilder, private userService:UsersService, private router: Router) { }
 
   ngOnInit(): void {
     if(this.userInfo) {
@@ -59,30 +61,65 @@ export class AdduserComponent implements OnInit {
   }
 
   initialiseUserModal(userObj: any=null) {
-    if(userObj == null) {
-    this.updation = false;
-    this.userForm = this.fb.group({
-    userId: [],           
-      username: [null],
-      fullName: [null],
-      address: [null],
-      email: [null],
-      img: this.fb.array([]),
-      contact: [],
-    });
-    } else {
-      this.updation = true;
+    if (userObj === null) {
       this.userForm = this.fb.group({
-      userId: [userObj.userId],           
-        username: [userObj.username],
-        fullname: [userObj.fullname],
-        address: [userObj.address],
-        email: [userObj.email],
-        img: [userObj.img],
+        fullName: ["", Validators.required],
+        email: ["", Validators.required],
+        password: ["", Validators.required],
+        userId: [null],
+        city: [null],
+        state: [null],
+        active: [true],
+        addedOn: [],
+        contact: [],
+      });
+    } else {
+      this.userForm = this.fb.group({
+        fullName: [userObj.fullName, Validators.required],
+        email: [userObj.email, Validators.required],
+        password: [userObj.password, Validators.required],
+        userId: [userObj.userId],
+        active: [userObj.active],
+        city: [userObj.city],
+        state: [userObj.state],
         contact: [userObj.contact],
-      })
+      });
       }
     } 
+
+    onSubmit() {
+      if(this.userForm.valid) {
+          if(this.userForm.get('userId')?.value != null) {  //if userId exists then update user else create user
+            this.handleUpdate();
+          } else{
+            this.handleCreate();
+          }
+      } else{
+        this.errResponse = "Unable to submit form, Invalid form data";
+        console.log("Invalid Form");
+      }
+    }
+
+    handleCreate() {
+      this.userService.save(this.userForm.getRawValue()).subscribe((response:any)=>{
+        console.log(response);
+        // this.router.navigateByUrl('/users');
+        window.location.href ="/users";
+        this.close();
+      },error =>{
+        this.errResponse = error.error.message;
+      })
+    }
+  
+    handleUpdate() {
+      this.userService.update(this.userForm.getRawValue()).subscribe((response:any)=>{
+        console.log(response);
+        window.location.href ="/users";
+        this.close();
+      },error =>{
+        this.errResponse = error.error.message;
+      })
+    }
 
     close() {
       this.closeModel.emit();

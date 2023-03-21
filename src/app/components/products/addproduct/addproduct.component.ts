@@ -18,6 +18,8 @@ export class AddproductComponent implements OnInit {
   updation: boolean = false;
   loader: boolean = false;
   categoryList:any[] =[];
+  tempFile: any;
+  
 
   @Input()
   public productInfo:any;
@@ -28,10 +30,9 @@ export class AddproductComponent implements OnInit {
   constructor( private modalService: NgbModal, private fb:FormBuilder, private categoriesService:CategoriesService) { }
 
   ngOnInit(): void {
-   this.categoriesService.getAllCategories().subscribe((response:any)=>{
+   this.categoriesService.getAll().subscribe((response:any)=>{
     this.categoryList = response;
    })
-
     if(this.productInfo) {
       this.initialiseProductModal(this.productInfo);
     }else{

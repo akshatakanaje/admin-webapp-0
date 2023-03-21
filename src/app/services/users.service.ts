@@ -16,6 +16,18 @@ export class UsersService {      //json is used to transfer the data to the comp
   }                                    //1st we need to add baseUrl(need to change this one)
 
   getOne(id:number) {
-    return this.httpClient.get<any[]>('../../assets/json/users.json');
+    return this.httpClient.get<any[]>(`${environment.baseUrl}/users/${id}`);
+  }
+
+  save(userObj:any) {
+    return this.httpClient.post<any[]>(`${environment.baseUrl}/users`, userObj);
+  }
+
+  update(userObj:any) {
+    return this.httpClient.put<any[]>(`${environment.baseUrl}/users`, userObj);
+  }
+
+  delete(userId:any) {
+    return this.httpClient.delete<any[]>(`${environment.baseUrl}/users/${userId}`);
   }
 }

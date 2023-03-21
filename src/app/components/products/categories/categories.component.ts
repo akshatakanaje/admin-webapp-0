@@ -20,10 +20,11 @@ export class CategoriesComponent implements OnInit {
   constructor(private categoriesService: CategoriesService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.categoriesService.getAllCategories().subscribe((response:any)=> {
+   /* this.categoriesService.getAll().subscribe((response:any)=> {
       //console.log(response);
-       this.categoriesList = response;
-    })
+       this.categoriesList = response.content; //it is a pagination response so we need to add content
+    }) */
+    this.getAll();
   }
 
   openProductCategoryDialog(modelRef:any, productCategoryObj = null) {
@@ -37,7 +38,7 @@ export class CategoriesComponent implements OnInit {
     this.tempImageFiles = [...imageUrls];
     this.thumbnailImageIdx = thumbnailImageIdx;
     this.modalService.open(modal, { 
-      size: "xl",
+      size: "l",
       scrollable: true 
     });
   }
@@ -45,6 +46,19 @@ export class CategoriesComponent implements OnInit {
   // open image
   openImage(url: string) {
       window.open(url, "_blank")
+  }
+
+  getAll() {
+    this.categoriesService.getAll().subscribe( (response:any)=> {
+      console.log(response);
+      this.categoriesList = response.content;
+    }) 
+  }
+
+  delete(categoryId:any) {
+    this.categoriesService.delete(categoryId).subscribe( (response:any)=> {
+      this.getAll();
+    })
   }
 
   closeModel(modelRef:any) {
