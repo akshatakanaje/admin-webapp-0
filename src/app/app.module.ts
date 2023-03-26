@@ -19,7 +19,6 @@ import { AuthModule } from './components/auth/auth.module';
 import { UsersModule } from './components/users/users.module';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from './services/orders.service';
-import { UpdateorderComponent } from './components/orders/updateorder/updateorder.component';
 import { AddordersComponent } from './components/orders/addorders/addorders.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -34,9 +33,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent, 
     OrdersComponent, 
     SideNavbarComponent,  
-    NotFoundComponent,  
-    UpdateorderComponent, 
-    AddordersComponent 
+    NotFoundComponent, 
+    AddordersComponent
+    
   ],
   imports: [
     BrowserModule,

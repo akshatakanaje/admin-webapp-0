@@ -26,17 +26,17 @@ export class OrdersComponent implements OnInit {
   constructor(private ordersService: OrdersService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.ordersService.getAllOrders().subscribe((orders:any)=> {  //response, data and oders all are same, you can call anything
-        //console.log(orders);
-        this.ordersList = orders;       
+    this.ordersService.getAll().subscribe((orders:any)=> {  //response, data and oders all are same, you can call anything
+        console.log(orders);
+        this.ordersList = orders.content;       
     })
   }
 
   openModal(modelRef:any, orderObj = null) {
-    this.modalService.open(modelRef, { size: "l" });
+    this.modalService.open(modelRef, { size: "xl" });
     this.orderInfo = orderObj;
   }
-   
+  
   changeOrderStatus(orderStatusIdx: number) {
     this.orderStatusIdx = orderStatusIdx;
    }
@@ -53,6 +53,12 @@ export class OrdersComponent implements OnInit {
      delete this.orderModel;
      this.viewOrderBool = false;
    }
+
+   openOrderDialog(modelRef:any, orderObj = null) {
+    console.log(orderObj);    
+    this.modalService.open(modelRef,{ size: "xl" });
+    this.orderInfo = orderObj;
+  }
 
    closeModel(modelRef:any) {
     this.modalService.dismissAll(modelRef);

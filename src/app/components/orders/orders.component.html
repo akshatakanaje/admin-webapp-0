@@ -9,7 +9,7 @@
                           <h4>Orders</h4>
                           <div class="col-12 col-sm-12">
                             <div class="d-flex justify-content-end align-items-center">
-                            <button class="btn btn-dark me-1" (click)="openModal(orderModal)">Add Orders</button>
+                            <button class="btn btn-dark me-1"  (click)="openModal(orderModal)">Add Orders</button>
                           </div>
                           <div class="d-flex flex-wrap">
                             <button type="button" class="btn btn-sm me-2" *ngFor="let status of orderStatus; index as idx" [ngClass]="{
@@ -41,7 +41,7 @@
                         <tr *ngFor="let order of ordersList ; index as idx">
                           <th scope="row">{{idx+1}}</th>
                           <td>{{order["orderId"]}}</td>
-                          <td>{{order["orderDate"]}}</td>
+                          <td>{{order["orderDate"] | date :'YYYY/MM/dd HH:mm:ss'}}</td>
                           <td>{{order["name"]}}</td>
                           <td>{{order["email"]}}</td>
                           <td>{{order["contact"]}}</td>
@@ -50,9 +50,9 @@
                           <td>
                               <button type="button" class="btn btn-sm btn-dark me-1 mb-1 {{ viewOrderIdx === idx ? 'd-flex align-items-center' : '' }}"
                                (click)="openViewModal(order, idx)">
-                                  View Order Details
+                                  View Details
                                 </button>
-                              <button type="button" class="btn btn-sm btn-dark me-1 mb-1" (click)="openModal(orderModal, order)">Update</button>
+                              <button type="button" class="btn btn-sm btn-dark me-1 mb-1" (click)="openOrderDialog(orderModal,order )">Update</button>
                               <button type="button" class="btn btn-sm btn-danger me-1 mb-1">Delete</button>
                           </td>
                         </tr>                          
@@ -96,9 +96,9 @@
           </div>
         </div>
   </div>
-</div>
+</div> 
 
-<!-- update order-->
-<ng-template #orderModal let-modal>
-  <app-updateorder [orderInfo]="orderInfo" (closeModel)="closeModel(orderModal)"></app-updateorder>
+<!-- add order -->
+<ng-template #orderModal let-modal class="bg-modal">
+  <app-addorders [orderInfo]="orderInfo" (closeModel)="closeModel(orderModal)"></app-addorders>
 </ng-template>
