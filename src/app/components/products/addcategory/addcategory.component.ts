@@ -57,7 +57,7 @@ export class AddcategoryComponent implements OnInit {
   
   onSubmit() {
     if(this.productCategoryForm.valid) {
-      if(this.productCategoryForm.get('categoryId')) {
+      if(this.productCategoryForm.get('categoryId')?.value != null) {
         this.handleUpdate();
       } else{
         this.handleCreate();

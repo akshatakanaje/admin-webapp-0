@@ -50,8 +50,8 @@ export class CategoriesComponent implements OnInit {
 
   getAll() {
     this.categoriesService.getAll().subscribe( (response:any)=> {
-      console.log(response);
-      this.categoriesList = response.content;
+      //console.log(response);
+      this.categoriesList = response.content; //it is a pagination response so we need to add content
     }) 
   }
 

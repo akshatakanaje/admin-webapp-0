@@ -10,11 +10,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  public signupForm: FormGroup;
+  public signupForm: FormGroup;  //declare variables properly
   public errResponse: string="";
 
   constructor(private authService: AuthService, private router: Router) { 
-    this.signupForm = new FormGroup({
+    this.signupForm = new FormGroup({  //initialize the varibles inside constructor by using this.variableName
       'email': new FormControl(null,[Validators.required, Validators.email]),
       'password': new FormControl(null,[Validators.required]),
       'fullName': new FormControl(null,[Validators.required]),

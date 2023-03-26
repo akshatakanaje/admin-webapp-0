@@ -21,19 +21,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from './services/orders.service';
 import { UpdateorderComponent } from './components/orders/updateorder/updateorder.component';
 import { AddordersComponent } from './components/orders/addorders/addorders.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AboutusComponent,
-    ContactusComponent,
-    DashboardComponent,
-    FooterComponent,
-    HeaderComponent,
-    NavbarComponent,
-    OrdersComponent,
-    SideNavbarComponent, 
-    NotFoundComponent, UpdateorderComponent, AddordersComponent
+    AppComponent, 
+    AboutusComponent, 
+    ContactusComponent, 
+    DashboardComponent, 
+    FooterComponent, 
+    HeaderComponent, 
+    NavbarComponent, 
+    OrdersComponent, 
+    SideNavbarComponent,  
+    NotFoundComponent,  
+    UpdateorderComponent, 
+    AddordersComponent 
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { AddordersComponent } from './components/orders/addorders/addorders.comp
     ProductsModule,
     AuthModule,
     UsersModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [OrdersService],  //we dont have orders.module.ts file, so we are adding ordersService to app.module.ts
   bootstrap: [AppComponent]

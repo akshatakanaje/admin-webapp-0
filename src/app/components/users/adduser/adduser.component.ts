@@ -89,7 +89,7 @@ export class AdduserComponent implements OnInit {
 
     onSubmit() {
       if(this.userForm.valid) {
-          if(this.userForm.get('userId')?.value != null) {  //if userId exists then update user else create user
+          if(this.userForm.get('userId')?.value != null) {  //if userId exists then updateuser else createuser
             this.handleUpdate();
           } else{
             this.handleCreate();

@@ -22,10 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  //Cross-Origin Resource Sharing (CORS): it is an HTTP header based mechanism that allow a server to 
-  //indicate any origin i.e any domain, port number etc other than its own form, its time to accessa data
-  //across external resources that time we will get CORS.
- 
+  
   onSubmit() {
     if(this.signinForm.valid) {
       this.authService.adminLogin(this.signinForm.getRawValue()).subscribe((response:any)=>{
