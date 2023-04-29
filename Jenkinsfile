@@ -37,7 +37,7 @@ pipeline {
                      else \
                     echo OK; \
                  fi;);
-                docker container run --restart always --name admin-webapp-0-container -p 4200:4200 -d admin-webapp-0
+                docker container run --restart always --name admin-webapp-0-container -p 4200:80 -d admin-webapp-0
             '''
             }
         }
