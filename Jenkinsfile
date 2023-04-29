@@ -7,14 +7,7 @@ pipeline {
     }
 
     stages {
-
-        stage('Initialize') {
-            steps {
-                def dockerHome = tool 'MyDocker'
-                env.PATH = "${dockerHome}/bin"
-            }
-        }
-
+     
         stage('Source checkout') {
             steps {
                 echo 'Cloning source code is finished.'
