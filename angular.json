@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demo-angular",
+            "outputPath": "dist/admin-webapp-0",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "demo-angular:build:production"
+              "browserTarget": "admin-webapp-0:build:production"
             },
             "development": {
-              "browserTarget": "demo-angular:build:development"
+              "browserTarget": "admin-webapp-0:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-angular:build"
+            "browserTarget": "admin-webapp-0:build"
           }
         },
         "test": {
